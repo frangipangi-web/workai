@@ -1,0 +1,95 @@
+{
+  "skill_name": "gdpr-data-processor-agreement",
+  "version": "1.0",
+  "description": "GDPR Data Processor Agreement Generator with health data detection",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "controller_name",
+      "controller_cvr",
+      "controller_address",
+      "processor_name",
+      "processor_cvr",
+      "processor_address",
+      "service_name",
+      "data_types",
+      "storage_location"
+    ],
+    "properties": {
+      "controller_name": {
+        "type": "string",
+        "description": "Full legal name of the data controller (company)"
+      },
+      "controller_cvr": {
+        "type": "string",
+        "description": "CVR, Tax ID, or organizational number of controller"
+      },
+      "controller_address": {
+        "type": "string",
+        "description": "Full business address of data controller"
+      },
+      "processor_name": {
+        "type": "string",
+        "description": "Full legal name of the data processor (service provider)"
+      },
+      "processor_cvr": {
+        "type": "string",
+        "description": "CVR, Tax ID, or organizational number of processor"
+      },
+      "processor_address": {
+        "type": "string",
+        "description": "Full business address of data processor"
+      },
+      "service_name": {
+        "type": "string",
+        "description": "Name of the service or system being processed"
+      },
+      "data_types": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of data categories (e.g., names, emails, addresses, medical records)"
+      },
+      "storage_location": {
+        "type": "string",
+        "description": "Primary location where data is stored (country/region)"
+      },
+      "country": {
+        "type": "string",
+        "enum": ["Denmark", "Norway", "Germany"],
+        "default": "Denmark",
+        "description": "Country for jurisdiction and regulatory adjustments"
+      },
+      "execution_date": {
+        "type": "string",
+        "description": "Date of agreement execution (format: Month DD, YYYY). Defaults to today."
+      },
+      "purposes": {
+        "type": "string",
+        "description": "Business purposes for data processing"
+      },
+      "data_categories": {
+        "type": "string",
+        "description": "Detailed description of data categories being processed"
+      },
+      "retention_period": {
+        "type": "string",
+        "default": "Duration of contract + 30 days",
+        "description": "How long data will be retained"
+      },
+      "additional_notes": {
+        "type": "string",
+        "description": "Any additional context or special requirements"
+      }
+    }
+  },
+  "output": {
+    "type": "docx",
+    "description": "Professional GDPR-compliant data processor agreement document"
+  },
+  "features": {
+    "health_data_detection": true,
+    "country_specific_adjustments": ["Denmark", "Norway", "Germany"],
+    "auto_compliance_warnings": true,
+    "editable_output": true
+  }
+}
